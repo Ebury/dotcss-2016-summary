@@ -13,10 +13,6 @@ const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
 gulp.task('styles', () => {
-  gulp.src('app/styles/**/*.css')
-    .pipe(gulp.dest('.tmp/styles'))
-    .pipe(reload({stream: true}));
-
   return gulp.src('app/styles/**/*.scss')
     .pipe($.plumber())
     .pipe($.sourcemaps.init())

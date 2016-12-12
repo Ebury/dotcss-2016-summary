@@ -5,7 +5,16 @@
  *
  * Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
  */
-@import url(league-gothic.css);
+@font-face {
+    font-family: 'League Gothic';
+    src: url('../fonts/league-gothic.eot');
+    src: url('../fonts/league-gothic.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/league-gothic.woff') format('woff'),
+         url('../fonts/league-gothic.ttf') format('truetype');
+
+    font-weight: normal;
+    font-style: normal;
+}
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
 /*********************************************
  * GLOBAL STYLES

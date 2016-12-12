@@ -1,19 +1,15 @@
-import * as Reveal from './reveal/reveal';
-import head from './reveal/head'
+import * as Reveal from './reveal/reveal'
+import hljs from './reveal/highlight'
 
 Reveal.initialize({
   controls: false,
   history: true,
-  transition: 'convex',
-
-  dependencies: [
-    {
-      src: 'scripts/reveal/highlight.js',
-      async: true,
-      callback: () => hljs.initHighlightingOnLoad()
-    },
-  ]
+  transition: 'convex'
 });
+
+Reveal.addEventListener( 'ready', function( event ) {
+    hljs.initHighlighting()
+} );
 
 Reveal.addEventListener('fragmentshown', event => {
   let example = parseInt(event.fragment.dataset.example);
