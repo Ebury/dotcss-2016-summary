@@ -3,14 +3,25 @@
   --color: red;
 }
 
-.element {
-  display: inline-block;
-  width: 50px;
-  height: 50px;
-  background-color: var(--main-bg-color);
+.example--1 {
+  background-color: var(--color);
+}
+
+.example--2 {
+  color: var(--color);
+}
+
+.example--3 {
+  border: 1px solid var(--color);
 }
             </code></pre><pre><code class="html" data-trim>
-              <div class="element"></div>
-            </code></pre><div class="text-center"><div class="element example-1"></div></div><div class="fragment" data-example="1"><pre><code class="javascript" data-trim>
+              <div class="example--1">foo</div>
+<div class="example--2">bar</div>
+<div class="example--3">baz</div>
+            </code></pre></section><section><div class="text-center"><div class="example example--1">foo</div><div class="example example--2">bar</div><div class="example example--3">baz</div></div><div class="fragment"><pre><code class="javascript" data-trim>
+                :root {
+  --color: green;
+}
+              </code></pre></div><div class="fragment"><pre><code class="javascript" data-trim>
                 document.querySelector(':root').style.setProperty('--color', 'green');
-              </code></pre></div></section><section><p>It's also a good way for separating the view from the controller</p></section></section><section><section><h2>WebFonts</h2></section></section></div></div><script src="scripts/vendor.js"></script><script src="scripts/plugins.js"></script><script src="scripts/main.js"></script></body></html>
+              </code></pre></div><div class="fragment" data-example="1"></div></section><section><p>It's also a good way for separating the view from the controller</p></section></section><section><section><h2>WebFonts</h2></section></section></div></div><script src="scripts/vendor.js"></script><script src="scripts/plugins.js"></script><script src="scripts/main.js"></script></body></html>
