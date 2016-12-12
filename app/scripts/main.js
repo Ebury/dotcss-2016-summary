@@ -1,5 +1,4 @@
-import * as Reveal from './reveal/reveal'
-import hljs from './reveal/highlight'
+/* global Reveal, hljs */
 
 Reveal.initialize({
   controls: false,

@@ -2,7 +2,31 @@ $icon-font-path: '../fonts/';
 
 // bower:scss
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+@import "bower_components/reveal.js/css/reveal.scss";
 // endbower
+
+// Reveal theme
+@import "bower_components/reveal.js/css/theme/template/mixins";
+@import "bower_components/reveal.js/css/theme/template/settings";
+@font-face {
+    font-family: 'League Gothic';
+    src: url('../fonts/league-gothic.eot');
+    src: url('../fonts/league-gothic.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/league-gothic.woff') format('woff'),
+         url('../fonts/league-gothic.ttf') format('truetype');
+
+    font-weight: normal;
+    font-style: normal;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
+$headingTextShadow: 0px 0px 6px rgba(0,0,0,0.2);
+$heading1TextShadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 20px 20px rgba(0,0,0,.15);
+@mixin bodyBackground() {
+	@include radial-gradient( rgba(28,30,32,1), rgba(85,90,95,1) );
+}
+@import "bower_components/reveal.js/css/theme/template/theme";
+// End reveal theme
 
 .reveal {
 
@@ -23,11 +47,25 @@ $icon-font-path: '../fonts/';
   --color: red;
 }
 
-.example-1 {
-  display: inline-block;
-  width: 50px;
-  height: 50px;
-  background-color: var(--color);
+.reveal {
+
+  .example {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+  }
+
+  .example--1 {
+    background-color: var(--color);
+  }
+
+  .example--2 {
+    color: var(--color);
+  }
+
+  .example--3 {
+    border: 1px solid var(--color);
+  }
 }
 
 

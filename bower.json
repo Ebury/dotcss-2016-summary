@@ -3,7 +3,8 @@
   "private": true,
   "dependencies": {
     "bootstrap-sass": "~3.3.5",
-    "modernizr": "~2.8.1"
+    "modernizr": "~2.8.1",
+    "reveal.js": "^3.3.0"
   },
   "overrides": {
     "bootstrap-sass": {
@@ -11,6 +12,15 @@
         "assets/stylesheets/_bootstrap.scss",
         "assets/fonts/bootstrap/*",
         "assets/javascripts/bootstrap.js"
+      ]
+    },
+    "reveal.js": {
+      "main": [
+        "js/reveal.js",
+        "plugin/highlight/highlight.js",
+        "lib/font/league-gothic/*.{eot,svg,ttf,woff,woff2}",
+        "css/reveal.scss",
+        "lib/css/zenburn.css"
       ]
     }
   },
