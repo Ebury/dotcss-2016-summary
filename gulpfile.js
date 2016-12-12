@@ -13,7 +13,11 @@ const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
 gulp.task('styles', () => {
-  return gulp.src('app/styles/*.scss')
+  gulp.src('app/styles/**/*.css')
+    .pipe(gulp.dest('.tmp/styles'))
+    .pipe(reload({stream: true}));
+
+  return gulp.src('app/styles/**/*.scss')
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
     .pipe($.sass.sync({
@@ -125,6 +129,7 @@ gulp.task('serve', ['styles', 'scripts', 'fonts', 'data'], () => {
     '.tmp/data/**/*'
   ]).on('change', reload);
 
+  gulp.watch('app/styles/**/*.css', ['styles']);
   gulp.watch('app/styles/**/*.scss', ['styles']);
   gulp.watch('app/scripts/**/*.js', ['scripts']);
   gulp.watch('app/fonts/**/*', ['fonts']);
