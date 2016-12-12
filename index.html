@@ -1,0 +1,16 @@
+<!doctype html><html class="no-js" lang=""><head><meta charset="utf-8"><meta name="description" content=""><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="author" content="Miguel Torres"><title>dotCSS 2016: Summary</title><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="shortcut icon" href="favicon.png"><link rel="icon" href="favicon.png"><!-- Place favicon.ico in the root directory --><link rel="stylesheet" href="styles/main.css"><script src="scripts/vendor/modernizr.js"></script></head><body><div class="reveal"><div class="slides"><section><img src="images/logo-dotcss.png" alt="dotCSS"><h1>dotCSS 2016 - Summary</h1><h2>Moving the CSS styles forward</h2></section><section><section><h2>CSS variables</h2><p>Say goodbye to multiple CSS files for a branding solution</p></section><section><pre><code class="css" data-trim>
+              :root {
+  --color: red;
+}
+
+.element {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background-color: var(--main-bg-color);
+}
+            </code></pre><pre><code class="html" data-trim>
+              <div class="element"></div>
+            </code></pre><div class="text-center"><div class="element example-1"></div></div><div class="fragment" data-example="1"><pre><code class="javascript" data-trim>
+                document.querySelector(':root').style.setProperty('--color', 'green');
+              </code></pre></div></section><section><p>It's also a good way for separating the view from the controller</p></section></section><section><section><h2>WebFonts</h2></section></section></div></div><script src="scripts/vendor.js"></script><script src="scripts/plugins.js"></script><script src="scripts/main.js"></script></body></html>
