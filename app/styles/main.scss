@@ -28,6 +28,17 @@ $heading1TextShadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b
 @import "bower_components/reveal.js/css/theme/template/theme";
 // End reveal theme
 
+@font-face {
+  font-family: LinBio;
+  src: url('../fonts/LinBiolinum_R.woff');
+}
+
+@font-face {
+  font-family: LinBio;
+  src: url('../fonts/LinBiolinum_RB.woff');
+  font-weight: bold;
+}
+
 .reveal {
 
   section {
@@ -49,23 +60,69 @@ $heading1TextShadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b
 
 .reveal {
 
-  .example {
+  .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .title__speaker, .title__talk {
+      display: inline-block;
+      padding: 0 10px;
+    }
+  }
+
+  .example-css-variables {
     display: inline-block;
     width: 50px;
     height: 50px;
   }
 
-  .example--1 {
+  .example-css-variables-1 {
     background-color: var(--color);
   }
 
-  .example--2 {
+  .example-css-variables-2 {
     color: var(--color);
   }
 
-  .example--3 {
+  .example-css-variables-3 {
     border: 1px solid var(--color);
   }
+
+  .example-css-variables-4 {
+    background-color: white;
+    color: #333;
+    padding: 15px;
+    font-size: 2rem;
+    position: relative;
+
+    .progress-bar {
+      height: 5px;
+      width: var(--progress);
+      background-color: red;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: none;
+    }
+
+    .text {
+      max-height: 50vh;
+      overflow: auto;
+    }
+  }
+
+  .example-webfonts {
+    font-family: LinBio;
+  }
+
+  .example-webfonts-2 {
+    font-variant-numeric: proportional-nums;
+
+    td {
+      font-family: LinBio;
+      text-align: right;
+    }
+  }
 }
-
-

@@ -20,7 +20,7 @@
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
-    
+
     <!-- build:js scripts/vendor/modernizr.js -->
     <script src="/bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
@@ -35,71 +35,229 @@
           <h2>Moving the CSS styles forward</h2>
         </section>
 
-        <section>
+        <section id="css-variables">
           <section>
-            <h2>CSS variables</h2>
-            <p>Say goodbye to multiple CSS files for a branding solution</p>
+            <div class="title">
+              <img src="images/lea-verou.png" alt="Lea Verou" class="title__speaker">
+              <div class="title__talk">
+                <h2>CSS variables</h2>
+                <h6>Speaker: Lea Verou</h6>
+              </div>
+            </div>
           </section>
 
+          <section><p>Say goodbye to multiple CSS files for a branding solution</p></section>
+
           <section>
+            <p>CSS variables can be defined using the <code>--color</code> property</p>
+
+            <p>We can define them globally using the <code>:root</code> selector</p>
+
             <pre><code class="css" data-trim>
-              :root {
+            :root {
   --color: red;
 }
 
-.example--1 {
+.example-1 {
   background-color: var(--color);
 }
 
-.example--2 {
+.example-2 {
   color: var(--color);
 }
 
-.example--3 {
+.example-3 {
   border: 1px solid var(--color);
 }
             </code></pre>
-            <pre><code class="html" data-trim>
-              <div class="example--1">foo</div>
-<div class="example--2">bar</div>
-<div class="example--3">baz</div>
-            </code></pre>
           </section>
+
           <section>
+
+            <pre><code class="html" data-trim>
+              <div class="example-1">foo</div>
+<div class="example-2">bar</div>
+<div class="example-3">baz</div>
+            </code></pre>
+
             <div class="text-center">
-              <div class="example example--1">foo</div>
-              <div class="example example--2">bar</div>
-              <div class="example example--3">baz</div>
+              <div class="example-css-variables example-css-variables-1">foo</div>
+              <div class="example-css-variables example-css-variables-2">bar</div>
+              <div class="example-css-variables example-css-variables-3">baz</div>
             </div>
-            <div class="fragment">
-              <pre><code class="javascript" data-trim>
+          </section>
+
+          <section>
+            <p>It is possible to modify the value of the variable in two ways</p>
+            <ul>
+              <li>
+                Including a CSS file that overrides it
+                <pre><code class="css" data-trim>
                 :root {
   --color: green;
 }
-              </code></pre>
+                </code></pre>
+              </li>
+              <li>
+                Updating the value from Javascript
+                <pre><code class="javascript" data-trim>
+                  document.querySelector(':root').style.setProperty('--color', 'green');
+                </code></pre>
+              </li>
+            </ul>
+
+            <div class="text-center">
+              <div class="example-css-variables example-css-variables-1">foo</div>
+              <div class="example-css-variables example-css-variables-2">bar</div>
+              <div class="example-css-variables example-css-variables-3">baz</div>
             </div>
-            <div class="fragment">
-              <pre><code class="javascript" data-trim>
-                document.querySelector(':root').style.setProperty('--color', 'green');
-              </code></pre>
-            </div>
-            <div class="fragment" data-example="1"></div>
+
+            <div class="fragment" data-example="cssVariables1"></div>
           </section>
+
           <section>
             <p>It's also a good way for separating the view from the controller</p>
+            <p>When writing CSS code we don't need to worry about how a variable is calculated</p>
+          </section>
 
+          <section>
+            <h6>Example</h6>
+            <p>We want to display a progress bar that indicates how much a user has scrolled down</p>
+          </section>
+
+          <section>
+            <p>HTML and CSS</p>
+            <pre><code class="html" data-trim>
+              <div class="progress-bar"></div>
+<div class="text">Lorem ipsum dolor sit amet...</div>
+            </code></pre>
+
+            <pre><code class="css" data-trim>
+              .progress-bar {
+  height: 5px;
+  width: var(--progress);
+  background-color: red;
+  display: block;
+}
+
+.text {
+  max-height: 50vh;
+  overflow: auto;
+}
+            </code></pre>
+          </section>
+
+          <section>
+            <p>Javascript</p>
+            <pre><code class="javascript" data-trim>
+              $('.text').scroll(e => {
+  let element = e.target;
+  let maxScroll = element.scrollHeight - element.clientHeight;
+  let currentScroll = element.scrollTop;
+  let percentageScroll = currentScroll * 100 / maxScroll;
+  document.querySelector('.progress-bar').style.setProperty('--progress', percentageScroll + '%');
+});
+            </code></pre>
+          </section>
+
+          <section>
+            <p>Result</p>
+            <div class="example-css-variables-4">
+              <div class="progress-bar js-progress-bar"></div>
+              <div class="text js-text">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquam arcu fringilla molestie iaculis. Ut vehicula nunc ex, ut rutrum dui tincidunt eget. Praesent eu volutpat dui. Morbi ante justo, ullamcorper et porttitor quis, aliquet sit amet libero. Sed id orci ultricies arcu viverra euismod. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum quis risus a urna aliquet molestie. Nam cursus laoreet neque sit amet sagittis. Donec non nulla in eros pellentesque scelerisque quis ac mi. Proin dignissim auctor orci, vitae pharetra enim scelerisque ac. In volutpat non nunc quis elementum. Aliquam varius, quam quis blandit aliquam, ipsum urna vulputate diam, vel gravida nibh velit mattis lacus. Aliquam aliquam scelerisque pellentesque.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquam arcu fringilla molestie iaculis. Ut vehicula nunc ex, ut rutrum dui tincidunt eget. Praesent eu volutpat dui. Morbi ante justo, ullamcorper et porttitor quis, aliquet sit amet libero. Sed id orci ultricies arcu viverra euismod. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum quis risus a urna aliquet molestie. Nam cursus laoreet neque sit amet sagittis. Donec non nulla in eros pellentesque scelerisque quis ac mi. Proin dignissim auctor orci, vitae pharetra enim scelerisque ac. In volutpat non nunc quis elementum. Aliquam varius, quam quis blandit aliquam, ipsum urna vulputate diam, vel gravida nibh velit mattis lacus. Aliquam aliquam scelerisque pellentesque.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquam arcu fringilla molestie iaculis. Ut vehicula nunc ex, ut rutrum dui tincidunt eget. Praesent eu volutpat dui. Morbi ante justo, ullamcorper et porttitor quis, aliquet sit amet libero. Sed id orci ultricies arcu viverra euismod. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum quis risus a urna aliquet molestie. Nam cursus laoreet neque sit amet sagittis. Donec non nulla in eros pellentesque scelerisque quis ac mi. Proin dignissim auctor orci, vitae pharetra enim scelerisque ac. In volutpat non nunc quis elementum. Aliquam varius, quam quis blandit aliquam, ipsum urna vulputate diam, vel gravida nibh velit mattis lacus. Aliquam aliquam scelerisque pellentesque.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquam arcu fringilla molestie iaculis. Ut vehicula nunc ex, ut rutrum dui tincidunt eget. Praesent eu volutpat dui. Morbi ante justo, ullamcorper et porttitor quis, aliquet sit amet libero. Sed id orci ultricies arcu viverra euismod. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum quis risus a urna aliquet molestie. Nam cursus laoreet neque sit amet sagittis. Donec non nulla in eros pellentesque scelerisque quis ac mi. Proin dignissim auctor orci, vitae pharetra enim scelerisque ac. In volutpat non nunc quis elementum. Aliquam varius, quam quis blandit aliquam, ipsum urna vulputate diam, vel gravida nibh velit mattis lacus. Aliquam aliquam scelerisque pellentesque.</p>
+              </div>
+            </div>
           </section>
         </section>
 
-        <section>
+        <section id="web-fonts">
           <section>
-            <h2>WebFonts</h2>
+            <div class="title">
+              <img src="images/chris-lilley.png" alt="Chris Lilley" class="title__speaker">
+              <div class="title__talk">
+                <h2>WebFonts</h2>
+                <h6>Speaker: Chris Lilley</h6>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <p>We can do much more than use custom fonts in our web applications</p>
+
+            <p>It is possible to modify how the numbers are displayed using font variants</p>
+          </section>
+
+          <section>
+            <pre><code class="html" data-trim>
+              <p class="example">1234567890ABC<br>1234567890abj</p>
+            </code></pre>
+            <pre><code class="css" data-trim>
+              .example {
+  font-variant-numeric: oldstyle-nums;
+}
+            </code></pre>
+            <p class="example-webfonts js-example-webfonts-1">1234567890ABC<br>1234567890abj</p>
+            <div class="fragment" data-example="webfonts1"></div>
+          </section>
+
+          <section>
+            <pre><code class="html" data-trim>
+              <table class="example">
+  <tbody>
+    <tr>
+      <td>112,113.56</td>
+    </tr>
+    <tr>
+      <td>89,546.87</td>
+    </tr>
+    <tr>
+      <td>286,111.10</td>
+    </tr>
+  </tbody>
+</table>
+            </code></pre>
+            <pre><code class="css" data-trim>
+              .example {
+  font-variant-numeric: tabular-nums;
+}
+            </code></pre>
+            <table class="example-webfonts example-webfonts-2 js-example-webfonts-2">
+              <tbody>
+                <tr>
+                  <td>112,113.56</td>
+                </tr>
+                <tr>
+                  <td>89,546.87</td>
+                </tr>
+                <tr>
+                  <td>286,111.10</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="fragment" data-example="webfonts2"></div>
+          </section>
+
+          <section>
+            <pre><code class="html" data-trim>
+              <p class="example">1/2 3/4 13/27 86/483</p>
+            </code></pre>
+            <pre><code class="css" data-trim>
+              .example {
+  font-variant-numeric: diagonal-fractions;
+}
+            </code></pre>
+            <p class="example-webfonts js-example-webfonts-3">1/2 3/4 13/27 86/483</p>
+            <div class="fragment" data-example="webfonts3"></div>
           </section>
         </section>
 
       </div>
     </div>
-    
+
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
@@ -108,7 +266,7 @@
     <script src="/bower_components/reveal.js/plugin/highlight/highlight.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
-    
+
     <!-- build:js scripts/plugins.js -->
     <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
     <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
@@ -123,7 +281,7 @@
     <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
     <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
     <!-- endbuild -->
-    
+
     <!-- build:js scripts/main.js -->
     <script src="scripts/bundle.js"></script>
     <!-- endbuild -->
