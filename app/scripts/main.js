@@ -32,7 +32,7 @@ window.cssVariables2 = function cssVariables2() {
   let maxScroll = element.scrollHeight - element.clientHeight;
   let currentScroll = element.scrollTop;
   let percentageScroll = currentScroll * 100 / maxScroll;
-  document.querySelector('.js-progress-bar').style.setProperty('--progress', percentageScroll + '%');
+  document.querySelector('.js-progress-bar').style.setProperty('--progress', percentageScroll);
 };
 
 window.webfonts1 = function webfonts1(action) {

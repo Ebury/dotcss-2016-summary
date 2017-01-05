@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
   <head>
     <meta charset="utf-8">
     <meta name="description" content="">
@@ -33,6 +33,14 @@
           <img src="images/logo-dotcss.png" alt="dotCSS">
           <h1>dotCSS 2016 - Summary</h1>
           <h2>Moving the CSS styles forward</h2>
+        </section>
+
+        <section>
+          <h3>Note</h3>
+          <p>This summary includes what I found more relevant for my current work at <a href="https://www.ebury.com" target="_blank">Ebury</a>.</p>
+          <p>All the talks were awesome thanks to the great speakers.</p>
+          <p>In case you miss any talk or if you want to extend this summary, you can watch all the talks on
+            <a href="http://www.thedotpost.com/conference/dotcss-2016" target="_blank">the dot post</a>.</p>
         </section>
 
         <section id="css-variables">
@@ -121,7 +129,7 @@
           </section>
 
           <section>
-            <h6>Example</h6>
+            <h3>Example</h3>
             <p>We want to display a progress bar that indicates how much a user has scrolled down</p>
           </section>
 
@@ -135,7 +143,7 @@
             <pre><code class="css" data-trim>
               .progress-bar {
   height: 5px;
-  width: var(--progress);
+  width: calc(var(--progress) * 1%);
   background-color: red;
   display: block;
 }
@@ -155,7 +163,7 @@
   let maxScroll = element.scrollHeight - element.clientHeight;
   let currentScroll = element.scrollTop;
   let percentageScroll = currentScroll * 100 / maxScroll;
-  document.querySelector('.progress-bar').style.setProperty('--progress', percentageScroll + '%');
+  document.querySelector('.progress-bar').style.setProperty('--progress', percentageScroll);
 });
             </code></pre>
           </section>
@@ -173,6 +181,121 @@
             </div>
           </section>
         </section>
+
+        <section id="emails-css">
+          <section>
+            <div class="title">
+              <img src="images/kevin-mandeville.png" alt="Kevin Mandeville" class="title__speaker">
+              <div class="title__talk">
+                <h2>Hacking emails with CSS</h2>
+                <h6>Speaker: Kevin Mandeville</h6>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <p>Tired of designing emails that look to have been built 15 years ago?</p>
+            <p>Email development has evolved a lot, and now it is possible to enjoy things like:</p>
+            <ul>
+              <li>Responsive design</li>
+              <li>Fully interactive experiences</li>
+              <li>...</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Fluid-to-fixed layout</h3>
+            <pre><code class="html" data-trim>
+              <div style="width: 100%; max-width: 600%;">
+  ...
+</div>
+            </code></pre>
+            <img src="images/email-layout.png" alt="">
+          </section>
+          <section>
+            <p>Outlook does not support the box model</p>
+            <pre><code class="html" data-trim>
+              <!--[if (gte mso 9)|(IE)]>
+  <table cellspacing="0" cellpadding="0" border="0"
+         width="600" align="center"><tr><td>
+<![endif]-->
+<div style="width: 100%; max-width: 600%;">
+  ...
+</div>
+<!--[if (gte mso 9)|(IE)]>
+  </td></tr></table>
+<![endif]-->
+            </code></pre>
+          </section>
+
+          <section>
+            <h3>The Fab Four: grid system without media queries</h3>
+            <p>It uses the <code>width</code>, <code>min-width</code> and <code>max-width</code> properties.</p>
+            <p>When used together, this is how they behave:</p>
+            <table>
+              <thead>
+                <tr>
+                  <th>If...</th>
+                  <th>Actual width</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>width</code> > <code>max-width</code></td>
+                  <td><code>max-width</code></td>
+                </tr>
+                <tr>
+                  <td><code>min-width</code> > <code>width</code></td>
+                  <td><code>min-width</code></td>
+                </tr>
+                <tr>
+                  <td><code>min-width</code> > <code>max-width</code></td>
+                  <td><code>min-width</code></td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section>
+            <h3>4-columns layout in desktop / 1-column layout in mobile</h3>
+            <pre><code class="css" data-trim>
+              .column {
+  display: inline-block;
+  min-width: 25%;
+  max-width: 100%;
+  width: calc((480px — 100%) * 480);
+}
+            </code></pre>
+
+            <table>
+              <colgroup>
+                <col style="width: 25%;">
+                <col style="width: 75%;">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <td><code>min-width</code></td>
+                  <td>Column width for desktop</td>
+                </tr>
+                <tr>
+                  <td><code>max-width</code></td>
+                  <td>Column width for mobile</td>
+                </tr>
+                <tr>
+                  <td><code>width</code></td>
+                  <td>This calculation creates a value bigger than <code>max-width</code> or smaller than <code>min-width</code>, so that either one of them is applied instead. The 480 value matches the desired breakpoint.</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section>
+            <h3>Dynamic emails</h3>
+
+          </section>
+
+        </section>
+
 
         <section id="web-fonts">
           <section>
