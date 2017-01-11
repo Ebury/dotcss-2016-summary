@@ -39,6 +39,11 @@ $heading1TextShadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b
   font-weight: bold;
 }
 
+@font-face {
+  font-family: RobotoSlab;
+  src: url('../fonts/RobotoSlab-Regular.ttf');
+}
+
 .reveal {
 
   section {
@@ -136,7 +141,28 @@ $heading1TextShadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b
         background-color: red;
       }
     }
+  }
 
+  .example-css-logo {
+
+    &.example-css-logo--1 {
+      font-family: RobotoSlab;
+      display: inline-block;
+      background-color: white;
+      color: #00465E;
+      font-size: 3em;
+      width: 300px;
+      height: 150px;
+      text-align: center;
+    }
+
+    &.example-css-logo--2:before {
+      content: "Ebury";
+    }
+
+    &.example-css-logo--2:before {
+      box-shadow: 123.5px 67.5px 0px -71px #B4C9D0;
+    }
   }
 
   .example-webfonts {

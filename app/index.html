@@ -367,7 +367,57 @@ input:checked + .interactive {
             </div>
           </section>
 
-          <section></section>
+          <section>
+            <p>It is possible to build complex shapes just using an empty <code>div</code> and playing aroung with CSS.</p>
+            <p><code>:before</code> and <code>:after</code> pseudo-selectors allow us to work actually with three layers.</p>
+            <p>Another key property is <code>box-shadow</code>, as we can define infinite shadows in a single property.</p>
+          </section>
+
+          <section>
+            <h3>Example</h3>
+
+            <p>Let's build the Ebury logo using only1 div</p>
+            <pre><code class="html" data-trim>
+              <div class="ebury-logo"></div>
+            </code></pre>
+
+          </section>
+
+          <section>
+            <p>We start rendering just the layout</p>
+            <pre><code class="css" data-trim>
+.ebury-logo {
+  display: inline-block;
+  background-color: white;
+  color: #00465E;
+  font-size: 3em;
+  width: 250px;
+  height: 150px;
+  text-align: center;
+}
+            </code></pre>
+            <div class="example-css-logo example-css-logo--1"></div>
+          </section>
+
+          <section>
+            <p>Now, we display the text</p>
+            <pre><code class="css" data-trim>
+.ebury-logo::before {
+  content: "Ebury";
+}
+            </code></pre>
+            <div class="example-css-logo example-css-logo--1 example-css-logo--2"></div>
+          </section>
+
+          <section>
+            <p>And finally, we include the remaining details</p>
+            <pre><code class="css" data-trim>
+.ebury-logo::before {
+  content: "Ebury";
+}
+            </code></pre>
+            <div class="example-css-logo example-css-logo--1 example-css-logo--2 example-css-logo--3"></div>
+          </section>
         </section>
 
         <section id="web-fonts">
