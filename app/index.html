@@ -198,8 +198,8 @@
             <p>Email development has evolved a lot, and now it is possible to enjoy things like:</p>
             <ul>
               <li>Responsive design</li>
+              <li>Dynamic content</li>
               <li>Fully interactive experiences</li>
-              <li>...</li>
             </ul>
           </section>
 
@@ -290,12 +290,85 @@
           </section>
 
           <section>
-            <h3>Dynamic emails</h3>
+            <h3>Dynamic content</h3>
+            <p>Thanks to the <code>content</code> property, we can write the content of an element in a CSS rule.</p>
 
+            <pre><code class="html" data-trim>
+              <div class="dynamic"></div>
+            </code></pre>
+
+            <pre><code class="css" data-trim>
+              .dynamic::before {
+  content: "Content written in CSS";
+}
+            </code></pre>
+
+            <div class="example-emails-1"></div>
+
+          </section>
+
+          <section>
+            <p>We can render empty elements in our emails and then include an external CSS file that will be generated on-demand. This file will have specified the <code>content</code> properties.</p>
+            <p>This will work only in clients based of WebKit, so we have to include a fallback using a dynamic image for non-WebKit clients.</p>
+          </section>
+
+          <section>
+            <h3>Interactive emails</h3>
+            <p>The <em>checkbox hack</em> allows us to include interactivity using the <code>:checked</code> pseudo-selector.</p>
+
+            <pre><code class="html" data-trim>
+              <label>
+  <input type="checkbox">
+  <div class="interactive"></div>
+</label>
+            </code></pre>
+
+            <pre><code class="css" data-trim>
+.interactive {
+  background-color: blue;
+}
+
+input {
+  display: none;
+}
+
+input:checked + .interactive {
+  background-color: red;
+}
+            </code></pre>
+
+            <div class="example-emails-2">
+              <label>
+                <input type="checkbox">
+                <div class="interactive"></div>
+              </label>
+            </div>
+          </section>
+
+          <section>
+            <p>With this hack, we can build more complex experiences like an image gallery.</p>
+
+            <ul>
+              <li><a href="https://litmus.com/builder/080f33c" target="_blank">Example 1</a></li>
+              <li><a href="https://litmus.com/builder/c0bfd8a" target="_blank">Example 2</a></li>
+            </ul>
           </section>
 
         </section>
 
+        <section id="css-logo">
+          <section>
+            <div class="title">
+              <img src="images/wenting-zhang.png" alt="Wenting Zhang" class="title__speaker">
+              <div class="title__talk">
+                <h2>Icons with 1 div and CSS</h2>
+                <h6>Speaker: Wenting Zhang</h6>
+              </div>
+            </div>
+          </section>
+
+          <section></section>
+        </section>
 
         <section id="web-fonts">
           <section>
