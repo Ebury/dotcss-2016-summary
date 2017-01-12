@@ -391,32 +391,53 @@ input:checked + .interactive {
   background-color: white;
   color: #00465E;
   font-size: 3em;
-  width: 250px;
+  width: 300px;
   height: 150px;
   text-align: center;
+  position: relative;
 }
             </code></pre>
             <div class="example-css-logo example-css-logo--1"></div>
           </section>
 
           <section>
-            <p>Now, we display the text</p>
+            <p>Now, we display the text. The <code>letter-spacing</code> property is for decreasing the space between characters.</p>
             <pre><code class="css" data-trim>
 .ebury-logo::before {
   content: "Ebury";
+  letter-spacing: -7px;
 }
             </code></pre>
             <div class="example-css-logo example-css-logo--1 example-css-logo--2"></div>
           </section>
 
           <section>
-            <p>And finally, we include the remaining details</p>
+            <p>We have to include an square in order to replace it later with <code>box-shadow</code>. For that, we use another layer we have available, the one selected by the <code>:after</code> pseudo-selector</p>
             <pre><code class="css" data-trim>
-.ebury-logo::before {
-  content: "Ebury";
+.ebury-logo::after {
+  width: 7px;
+  height: 7px;
+  background-color: red;
+  position: absolute;
+  left: 0;
+  content: "";
 }
             </code></pre>
             <div class="example-css-logo example-css-logo--1 example-css-logo--2 example-css-logo--3"></div>
+          </section>
+
+          <section>
+            <p>And finally, we hide the square we included before but using some replicas with the <code>box-shadow</code> property</p>
+            <pre><code class="css" data-trim>
+.ebury-logo::after {
+  background-color: transparent;
+  box-shadow: 90.75px 31px 0 0 #B4C9D0,
+              219px 50px 0 0 #B4C9D0,
+              89.5px 15px 0 9px #FFFFFF,
+              219px 35px 0 9px #FFFFFF;
+}
+            </code></pre>
+            <div class="example-css-logo example-css-logo--1 example-css-logo--2 example-css-logo--3 example-css-logo--4"></div>
           </section>
         </section>
 
@@ -499,6 +520,45 @@ input:checked + .interactive {
             <p class="example-webfonts js-example-webfonts-3">1/2 3/4 13/27 86/483</p>
             <div class="fragment" data-example="webfonts3"></div>
           </section>
+        </section>
+
+        <section id="other-talks">
+          <h2>Other talks</h2>
+          <table class="other-talks">
+            <thead>
+              <tr>
+                <th>Speaker</th>
+                <th>Talk</th>
+                <th>Summary</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><img src="images/hakon-wium-lie.png" alt="Håkon Wium Lie">Håkon Wium Lie</td>
+                <td>Write a book</td>
+                <td>HTML/CSS was not intended to be used just in a screen, we can write a book using them!</td>
+              </tr>
+              <tr>
+                <td><img src="images/philip-walton.png" alt="Val Head">Val Head</td>
+                <td>The Dark Side of Polyfilling CSS</td>
+                <td>Writing polyfills for CSS is much harder than it might seem.</td>
+              </tr>
+              <tr>
+                <td><img src="images/val-head.png" alt="Val Head">Val Head</td>
+                <td>Easing functions</td>
+                <td>Apply animations using equations help to have natural feeling when interacting with web applications.</td>
+              </tr>
+              <tr>
+                <td><img src="images/varya-stepanova.png" alt="Varya Stepanova">Varya Stepanova</td>
+                <td>Pattern libraries through trial and error</td>
+                <td>How to make changes to our styleguide being sure that we are not breaking anything</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <h2>Thank you</h2>
         </section>
 
       </div>

@@ -40,8 +40,8 @@ $heading1TextShadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b
 }
 
 @font-face {
-  font-family: RobotoSlab;
-  src: url('../fonts/RobotoSlab-Regular.ttf');
+  font-family: KlinicSlan;
+  src: url('../fonts/KlinicSlabBook.otf');
 }
 
 .reveal {
@@ -146,7 +146,7 @@ $heading1TextShadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b
   .example-css-logo {
 
     &.example-css-logo--1 {
-      font-family: RobotoSlab;
+      font-family: KlinicSlan;
       display: inline-block;
       background-color: white;
       color: #00465E;
@@ -154,14 +154,29 @@ $heading1TextShadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b
       width: 300px;
       height: 150px;
       text-align: center;
+      position: relative;
     }
 
     &.example-css-logo--2:before {
       content: "Ebury";
+      letter-spacing: -7px;
     }
 
-    &.example-css-logo--2:before {
-      box-shadow: 123.5px 67.5px 0px -71px #B4C9D0;
+    &.example-css-logo--3:after {
+      width: 7px;
+      height: 7px;
+      background-color: red;
+      position: absolute;
+      left: 0;
+      content: "";
+    }
+
+    &.example-css-logo--4:after {
+      background-color: transparent;
+      box-shadow: 90.75px 31px 0 0 #B4C9D0,
+                  219px 50px 0 0 #B4C9D0,
+                  89.5px 15px 0 9px #FFFFFF,
+                  219px 35px 0 9px #FFFFFF;
     }
   }
 
@@ -175,6 +190,22 @@ $heading1TextShadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b
     td {
       font-family: LinBio;
       text-align: right;
+    }
+  }
+
+  .other-talks {
+    font-size: 0.75em;
+
+    img {
+      display: inline-block;
+      max-width: 25%;
+      margin: 0;
+      margin-right: 15px;
+      vertical-align: middle;
+    }
+
+    th, td {
+      vertical-align: middle;
     }
   }
 }
