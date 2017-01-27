@@ -22,6 +22,21 @@ Reveal.addEventListener('fragmenthidden', event => {
   window[example]('hide');
 });
 
+Reveal.addEventListener('slidechanged', event => {
+ if (event.indexh === 0) {
+    document.querySelector('.js-instructions').classList.remove('hide');
+ } else {
+   document.querySelector('.js-instructions').classList.add('hide');
+ }
+});
+
+window.addEventListener('mousedown', e => {
+  e.preventDefault();
+  if(e.button === 0) Reveal.next();
+  if(e.button === 2) Reveal.prev();
+}, false);
+window.addEventListener('contextmenu', e => e.preventDefault(), false);
+
 window.cssVariables1 = function cssVariables1(action) {
   let color = action === 'show' ? 'green' : 'red';
   document.querySelector(':root').style.setProperty('--color', color);
