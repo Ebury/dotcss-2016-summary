@@ -60,6 +60,7 @@ $heading1TextShadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b
 
   .instructions {
     position: absolute;
+    left: 0;
     right: 0;
     bottom: 0;
     font-size: 0.5em;
@@ -67,6 +68,8 @@ $heading1TextShadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b
     padding: 15px;
     background: rgba(0, 0, 0, 0.3);
     list-style: none;
+    margin-left: 0;
+    text-align: center;
   }
 }
 
